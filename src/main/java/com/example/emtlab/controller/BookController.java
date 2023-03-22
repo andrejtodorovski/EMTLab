@@ -1,16 +1,16 @@
 package com.example.emtlab.controller;
 
-import com.example.emtlab.exception.BookNotFoundException;
 import com.example.emtlab.model.Book;
+import com.example.emtlab.model.dto.BookDTO;
+import com.example.emtlab.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.emtlab.service.BookService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/books")
 public class BookController {
     private final BookService bookService;
 
@@ -24,27 +24,30 @@ public class BookController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Long id){
-        try {
-            return new ResponseEntity<>(bookService.getBookById(id),HttpStatus.OK);
-        } catch (BookNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return bookService.getBookById(id)
+                .map(b->ResponseEntity.ok().body(b))
+                .orElseGet(()->ResponseEntity.notFound().build());
     }
     @PostMapping
-    public ResponseEntity<Book> addBook(@RequestBody Book book){
+    public ResponseEntity<Book> addBook(@RequestBody BookDTO book){
         return new ResponseEntity<>(bookService.addBook(book),HttpStatus.CREATED);
     }
     @PostMapping("/{id}")
-    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book book){
-        try {
-            return new ResponseEntity<>(bookService.updateBook(id,book),HttpStatus.CREATED);
-        } catch (BookNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody BookDTO book){
+        return bookService.updateBook(id,book)
+                .map(b->ResponseEntity.ok().body(b))
+                .orElseGet(()->ResponseEntity.notFound().build());
     }
     @PostMapping("/delete/{id}")
     public ResponseEntity<Book> deleteBook(@PathVariable Long id){
         bookService.deleteBook(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @PostMapping("/rentBook/{id}")
+    public ResponseEntity<Book> rentBook(@PathVariable Long id)
+    {
+        return bookService.markAsRented(id)
+                .map(b->ResponseEntity.ok().body(b))
+                .orElseGet(()->ResponseEntity.badRequest().build());
     }
 }

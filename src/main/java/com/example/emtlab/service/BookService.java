@@ -1,15 +1,16 @@
 package com.example.emtlab.service;
 
-import com.example.emtlab.exception.BookNotFoundException;
 import com.example.emtlab.model.Book;
+import com.example.emtlab.model.dto.BookDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookService {
     List<Book> getAll();
-    Book addBook(Book book);
-    Book getBookById(Long id) throws BookNotFoundException;
-    Book updateBook(Long id, Book book) throws BookNotFoundException;
+    Book addBook(BookDTO book);
+    Optional<Book> getBookById(Long id);
+    Optional<Book> updateBook(Long id, BookDTO book);
     void deleteBook(Long id);
-    void markAsRented(Long id) throws BookNotFoundException;
+    Optional<Book> markAsRented(Long id);
 }
