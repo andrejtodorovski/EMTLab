@@ -28,22 +28,26 @@ public class BookController {
                 .map(b->ResponseEntity.ok().body(b))
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Book> addBook(@RequestBody BookDTO book){
-        return new ResponseEntity<>(bookService.addBook(book),HttpStatus.CREATED);
+        return this.bookService.addBook(book)
+                .map(b -> ResponseEntity.ok().body(b))
+                .orElseGet(() -> ResponseEntity.badRequest().build());
     }
-    @PostMapping("/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody BookDTO book){
         return bookService.updateBook(id,book)
                 .map(b->ResponseEntity.ok().body(b))
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Book> deleteBook(@PathVariable Long id){
         bookService.deleteBook(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if(this.bookService.getBookById(id).isEmpty())
+            return ResponseEntity.ok().build();
+        return ResponseEntity.badRequest().build();
     }
-    @PostMapping("/rentBook/{id}")
+    @PutMapping("/rentBook/{id}")
     public ResponseEntity<Book> rentBook(@PathVariable Long id)
     {
         return bookService.markAsRented(id)

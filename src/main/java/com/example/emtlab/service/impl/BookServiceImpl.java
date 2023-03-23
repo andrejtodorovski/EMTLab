@@ -27,11 +27,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book addBook(BookDTO book) {
+    public Optional<Book> addBook(BookDTO book) {
         Author author = authorRepository.findById(book.getAuthorId())
                 .orElseThrow(RuntimeException::new);
         Book newBook = new Book(book.getName(), book.getCategory(), author, book.getAvailableCopies());
-        return bookRepository.save(newBook);
+        return Optional.of(bookRepository.save(newBook));
     }
 
     @Override

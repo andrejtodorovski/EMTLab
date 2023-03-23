@@ -26,22 +26,26 @@ public class AuthorController {
     @GetMapping("/{id}")
     public ResponseEntity<Author> getAuthorById(@PathVariable Long id){
         return authorService.getAuthorById(id)
-                .map(b->ResponseEntity.ok().body(b))
+                .map(a->ResponseEntity.ok().body(a))
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Author> addAuthor(@RequestBody AuthorDTO author){
-        return new ResponseEntity<>(authorService.addAuthor(author),HttpStatus.CREATED);
+        return this.authorService.addAuthor(author)
+                .map(a -> ResponseEntity.ok().body(a))
+                .orElseGet(() -> ResponseEntity.badRequest().build());
     }
-    @PostMapping("/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Author> updateAuthor(@PathVariable Long id, @RequestBody AuthorDTO author){
         return authorService.updateAuthor(id,author)
                 .map(b->ResponseEntity.ok().body(b))
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Author> deleteAuthor(@PathVariable Long id){
         authorService.deleteAuthor(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if(this.authorService.getAuthorById(id).isEmpty())
+            return ResponseEntity.ok().build();
+        return ResponseEntity.badRequest().build();
     }
 }

@@ -22,8 +22,9 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Country addCountry(Country country) {
-        return countryRepository.save(country);
+    public Optional<Country> addCountry(Country country) {
+
+        return Optional.of(countryRepository.save(country));
     }
 
     @Override

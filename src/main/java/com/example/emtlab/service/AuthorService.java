@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface AuthorService {
     List<Author> getAllAuthors();
-    Author addAuthor(AuthorDTO author);
+    Optional<Author> addAuthor(AuthorDTO author);
     Optional<Author> getAuthorById(Long id);
     Optional<Author> updateAuthor(Long id, AuthorDTO author);
     void deleteAuthor(Long id);

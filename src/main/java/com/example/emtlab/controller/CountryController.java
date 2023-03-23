@@ -25,22 +25,26 @@ public class CountryController {
     @GetMapping("/{id}")
     public ResponseEntity<Country> getCountryById(@PathVariable Long id){
         return countryService.getCountryById(id)
-                .map(b->ResponseEntity.ok().body(b))
+                .map(c->ResponseEntity.ok().body(c))
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Country> addCountry(@RequestBody Country country){
-        return new ResponseEntity<>(countryService.addCountry(country),HttpStatus.CREATED);
+        return this.countryService.addCountry(country)
+                .map(c -> ResponseEntity.ok().body(c))
+                .orElseGet(() -> ResponseEntity.badRequest().build());
     }
-    @PostMapping("/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Country> updateCountry(@PathVariable Long id, @RequestBody Country country){
         return countryService.updateCountry(id,country)
-                .map(b->ResponseEntity.ok().body(b))
+                .map(c->ResponseEntity.ok().body(c))
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Country> deleteCountry(@PathVariable Long id){
         countryService.deleteCountry(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if(this.countryService.getCountryById(id).isEmpty())
+            return ResponseEntity.ok().build();
+        return ResponseEntity.badRequest().build();
     }
 }

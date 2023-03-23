@@ -27,11 +27,11 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Author addAuthor(AuthorDTO author) {
+    public Optional<Author> addAuthor(AuthorDTO author) {
         Country country = countryRepository.findById(author.getCountryId())
                 .orElseThrow(RuntimeException::new);
         Author newAuthor = new Author(author.getName(),author.getSurname(),country);
-        return authorRepository.save(newAuthor);
+        return Optional.of(authorRepository.save(newAuthor));
     }
 
     @Override

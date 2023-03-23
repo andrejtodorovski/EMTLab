@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface BookService {
     List<Book> getAll();
-    Book addBook(BookDTO book);
+    Optional<Book> addBook(BookDTO book);
     Optional<Book> getBookById(Long id);
     Optional<Book> updateBook(Long id, BookDTO book);
     void deleteBook(Long id);
