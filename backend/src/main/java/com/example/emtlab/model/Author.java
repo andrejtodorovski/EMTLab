@@ -18,8 +18,8 @@ public class Author {
     String surname;
     @ManyToOne
     Country country;
-    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
-    List<Book> books;
+//    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
+//    List<Book> books;
 
     public Author(String name, String surname, Country country) {
         this.name = name;

@@ -8,6 +8,7 @@ import com.example.emtlab.repository.CountryRepository;
 import com.example.emtlab.service.AuthorService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    @Transactional
     public Optional<Author> addAuthor(AuthorDTO author) {
         Country country = countryRepository.findById(author.getCountryId())
                 .orElseThrow(RuntimeException::new);
@@ -40,6 +42,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    @Transactional
     public Optional<Author> updateAuthor(Long id, AuthorDTO author) {
         Author authorToUpdate = authorRepository.findById(id)
                 .orElseThrow(RuntimeException::new);

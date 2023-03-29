@@ -5,6 +5,7 @@ import com.example.emtlab.repository.CountryRepository;
 import com.example.emtlab.service.CountryService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,7 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
+    @Transactional
     public Optional<Country> addCountry(Country country) {
 
         return Optional.of(countryRepository.save(country));
@@ -33,6 +35,7 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
+    @Transactional
     public Optional<Country> updateCountry(Long id, Country country) {
         Country current = countryRepository.findById(id)
                 .orElseThrow(RuntimeException::new);

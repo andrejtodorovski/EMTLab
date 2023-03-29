@@ -3,6 +3,7 @@ package com.example.emtlab.controller;
 import com.example.emtlab.model.Book;
 import com.example.emtlab.model.dto.BookDTO;
 import com.example.emtlab.service.BookService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +54,9 @@ public class BookController {
         return bookService.markAsRented(id)
                 .map(b->ResponseEntity.ok().body(b))
                 .orElseGet(()->ResponseEntity.badRequest().build());
+    }
+    @GetMapping("/pagination")
+    public List<Book> getAllBooksWithPagination(Pageable pageable){
+        return bookService.findAllByPagination(pageable).getContent();
     }
 }

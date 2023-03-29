@@ -16,6 +16,6 @@ public class Country {
     Long id;
     String name;
     String continent;
-    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
-    List<Author> authors;
+//    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
+//    List<Author> authors;
 }
