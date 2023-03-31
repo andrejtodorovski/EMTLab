@@ -3,6 +3,7 @@ package com.example.emtlab.service.impl;
 import com.example.emtlab.model.Author;
 import com.example.emtlab.model.Book;
 import com.example.emtlab.model.dto.BookDTO;
+import com.example.emtlab.model.enumeration.Category;
 import com.example.emtlab.repository.AuthorRepository;
 import com.example.emtlab.repository.BookRepository;
 import com.example.emtlab.service.BookService;
@@ -11,8 +12,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -77,5 +80,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public Page<Book> findAllByPagination(Pageable pageable) {
         return bookRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<String> getCategories() {
+        return Arrays.stream(Category.values()).map(Enum::toString).collect(Collectors.toList());
     }
 }

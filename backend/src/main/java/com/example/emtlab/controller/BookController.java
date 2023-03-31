@@ -2,6 +2,7 @@ package com.example.emtlab.controller;
 
 import com.example.emtlab.model.Book;
 import com.example.emtlab.model.dto.BookDTO;
+import com.example.emtlab.model.enumeration.Category;
 import com.example.emtlab.service.BookService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/api/books")
 public class BookController {
     private final BookService bookService;
@@ -58,5 +60,9 @@ public class BookController {
     @GetMapping("/pagination")
     public List<Book> getAllBooksWithPagination(Pageable pageable){
         return bookService.findAllByPagination(pageable).getContent();
+    }
+    @GetMapping("/categories")
+    public List<String> getCategories(){
+        return bookService.getCategories();
     }
 }

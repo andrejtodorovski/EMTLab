@@ -16,4 +16,5 @@ public interface BookService {
     void deleteBook(Long id);
     Optional<Book> markAsRented(Long id);
     Page<Book> findAllByPagination(Pageable pageable);
+    List<String> getCategories();
 }
