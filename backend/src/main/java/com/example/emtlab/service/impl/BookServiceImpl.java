@@ -83,7 +83,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<String> getCategories() {
-        return Arrays.stream(Category.values()).map(Enum::toString).collect(Collectors.toList());
+    public List<Category> getCategories() {
+        return Arrays.stream(Category.values()).toList();
     }
 }

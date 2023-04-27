@@ -62,7 +62,7 @@ public class BookController {
         return bookService.findAllByPagination(pageable).getContent();
     }
     @GetMapping("/categories")
-    public List<String> getCategories(){
+    public List<Category> getCategories(){
         return bookService.getCategories();
     }
 }

@@ -2,6 +2,7 @@ package com.example.emtlab.service;
 
 import com.example.emtlab.model.Book;
 import com.example.emtlab.model.dto.BookDTO;
+import com.example.emtlab.model.enumeration.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,5 +17,5 @@ public interface BookService {
     void deleteBook(Long id);
     Optional<Book> markAsRented(Long id);
     Page<Book> findAllByPagination(Pageable pageable);
-    List<String> getCategories();
+    List<Category> getCategories();
 }
