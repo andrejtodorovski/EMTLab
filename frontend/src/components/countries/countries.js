@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-const BookDetails = (props) => {
-    // const book = props.getBook(props.id)
+const Country = (props) => {
     return (
         <div className='container'>
-            <Link to={"/books"} className='btn btn-primary mt-4 mb-4'>All Books</Link>
             <div>
                 <div>
                     <table className='table-bordered table'>
                         <thead className='table-dark'>
                             <tr>
                                 <th scope='col'>Name</th>
-                                <th scope='col'>Category</th>
-                                <th scope='col'>Available copies</th>
+                                <th scope='col'>Continent</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-
-                            </tr>
+                            {props.countries.map((c)=> {
+                            return (
+                            <tr key={c.id}>
+                                <td>{c.name}</td>
+                                <td>{c.continent}</td>
+                            </tr>)})}
                         </tbody>
                     </table>
                 </div>
@@ -27,4 +27,4 @@ const BookDetails = (props) => {
     );
 
 }
-export default BookDetails;
+export default Country;

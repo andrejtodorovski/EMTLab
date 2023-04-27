@@ -28,7 +28,7 @@ const EditBook = (props) => {
     return (
         <div className="row mt-5">
             <div className="col-md-5">
-                <Link to={"/books"} className='btn btn-primary mt-4 mb-4'>Books</Link>
+                <Link to={"/books"} className='btn btn-primary mb-4'>Go back to all Books</Link>
                 <form onSubmit={onFormSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Book name</label>

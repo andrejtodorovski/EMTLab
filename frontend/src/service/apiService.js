@@ -12,6 +12,9 @@ const ApiService = {
     },
     getAllCategories: () => {
         return axios.get("/books/categories");
+    },
+    getAllCountries: () => {
+        return axios.get("/countries");
     }
     ,
     deleteBook(id){
@@ -40,6 +43,9 @@ const ApiService = {
                 page: 1
             }
         })
+    },
+    lendBook(id){
+        return axios.put(`/books/rentBook/${id}`)
     }
 }
 export default ApiService

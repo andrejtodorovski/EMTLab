@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d51e8ff8-b8e0-42a9-bf73-3866eb6ce498" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/controller/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/controller/AuthorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/controller/CountryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/controller/CountryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/emtlab/service/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-andrej.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-andrej.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89b22057-c59a-4725-be22-8ed727a45b0d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/89b22057-c59a-4725-be22-8ed727a45b0d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/author/author.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/author/author.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/bookDetails/BookDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/bookDetails/BookDetails.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +76,12 @@
       <updated>1680120112719</updated>
       <workItem from="1680120118058" duration="118000" />
       <workItem from="1680211614420" duration="10899000" />
-      <workItem from="1680262621289" duration="2229000" />
+      <workItem from="1680262621289" duration="2567000" />
+      <workItem from="1680285275496" duration="106000" />
+      <workItem from="1681758814353" duration="2002000" />
+      <workItem from="1681816166496" duration="283000" />
+      <workItem from="1682547786758" duration="862000" />
+      <workItem from="1682585625460" duration="1745000" />
     </task>
     <servers />
   </component>

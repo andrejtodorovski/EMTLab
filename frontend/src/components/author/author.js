@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 const Author = (props) => {
     return (
         <div className='container'>
-                <Link to={"/books"} className='btn btn-primary mt-4 mb-4'>Books</Link>
             <div>
                 <div>
                     <table className='table-bordered table'>
